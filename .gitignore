@@ -1,0 +1,19 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# AI tools
+.claude/
+.cursor/
+
+
+# Virtual environments
+.venv
+uv.lock
+
+data/
+imdb.db
