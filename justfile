@@ -1,3 +1,3 @@
 
 run:
-    mcphost -m ollama:deepseek-r1 --config mcp_config.json
+    @mcphost -m ollama:qwen3 --config mcp_config.json

@@ -1,7 +1,7 @@
 {
   "mcpServers": {
     "imdb": {
-      "command": "/Users/mkaz/src/mkaz/mymdb/mcp_server.py",
+      "command": "/Users/marcus/src/mkaz/mymdb/mcp_server.py",
       "args": [],
       "cwd": ".",
       "env": {},

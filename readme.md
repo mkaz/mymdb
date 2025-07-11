@@ -1,3 +1,25 @@
+
+# MyMDb - An MCP server to query IMDb data
+
+A test app to play with MCP servers using the IMDb data set.
+
+## Setup
+
+1. Fetch data from IMdb: `cd data && bash fetch.sh`
+2. Import data to sqlite db: `python import.py`
+3. Install [mcphost](https://github.com/mark3labs/mcphost)
+    a. `brew install go`
+    b. `go install github.com/mark3labs/mcphost@latest`
+    c. Add `go/bin` to `PATH`
+4. Setup Python: `uv sync` download dependencies
+
+FIXME: MCP Config / Script path weirdness. Hardcoded in mcp_server.py and mcp_config.json
+
+5. `just run`
+
+
+---
+
 IMDb Dataset Details
 
 Each dataset is contained in a gzipped, tab-separated-values (TSV) formatted file in the UTF-8 character set. The first line in each file contains headers that describe what is in each column. A '\N' is used to denote that a particular field is missing or null for that title/name. The available datasets are as follows:
@@ -60,7 +82,8 @@ name.basics.tsv.gz
     deathYear – in YYYY format if applicable, else '\N'
     primaryProfession (array of strings)– the top-3 professions of the person
     knownForTitles (array of tconsts) – titles the person is known for
-# IMDB MCP Server
+
+---
 
 This is a Model Context Protocol (MCP) server that provides tools to query the IMDB database for movies, directors, actors, and ratings.
 
@@ -75,54 +98,7 @@ The MCP server provides the following tools:
 5. **top_rated_movies** - Get top rated movies with optional filters
 6. **execute_sql_query** - Execute custom SQL queries (SELECT only, for advanced users)
 
-## Setup
 
-### Prerequisites
-
-- Python 3.8 or higher
-- The IMDB database (`imdb.db`) should be present in the same directory
-- Required Python packages (install with `pip install -r requirements.txt`)
-
-### Installation
-
-1. Install the required dependencies:
-```bash
-pip install -r requirements.txt
-```
-
-2. Make sure your `imdb.db` database file is in the same directory as the MCP server
-
-3. Test the server functionality:
-```bash
-python test_mcp_server.py
-```
-
-## Usage
-
-### Running the MCP Server
-
-The server is designed to be used with MCP clients. To run it directly:
-
-```bash
-python mcp_server.py
-```
-
-### Configuration for MCP Clients
-
-Add the following configuration to your MCP client configuration file:
-
-```json
-{
-  "mcpServers": {
-    "imdb": {
-      "command": "python",
-      "args": ["mcp_server.py"],
-      "cwd": "/path/to/your/mymdb/directory",
-      "env": {}
-    }
-  }
-}
-```
 
 ### Example Queries
 
@@ -208,19 +184,3 @@ The IMDB database contains the following main tables:
 - Dangerous SQL operations (DROP, DELETE, INSERT, etc.) are blocked
 - Query results are limited to prevent excessive resource usage
 
-## Troubleshooting
-
-1. **Database not found**: Make sure `imdb.db` is in the same directory as the MCP server
-2. **Import errors**: Install required packages with `pip install -r requirements.txt`
-3. **No results**: The database only contains movies (not TV shows, episodes, etc.)
-4. **Performance**: Large queries may take time; use the `limit` parameter to restrict results
-
-## Testing
-
-Run the test script to verify functionality:
-
-```bash
-python test_mcp_server.py
-```
-
-This will test all the main functions with sample queries.

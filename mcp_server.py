@@ -1,4 +1,4 @@
-#!/Users/mkaz/.venv/bin/python3
+#!/Users/marcus/src/mkaz/mymdb/.venv/bin/python
 """
 MCP Server for IMDB Database
 
