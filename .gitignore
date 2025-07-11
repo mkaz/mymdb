@@ -15,5 +15,5 @@ wheels/
 .venv
 uv.lock
 
-data/
+data/*.gz
 imdb.db
