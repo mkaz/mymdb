@@ -1,11 +1,19 @@
 {
-  "mcpServers": {
-    "imdb": {
-      "command": "/Users/marcus/src/mkaz/mymdb/mcp_server.py",
-      "args": [],
-      "cwd": ".",
-      "env": {},
-      "allowedTools": ["execute_sql_query", "top_rated_movies", "get_movie_details", "search_movies", "query_movies_by_actor", "query_movies_by_director"]
+    "mcpServers": {
+        "imdb": {
+            "type": "local",
+            "command": ["./.venv/bin/python3", "mcp_server.py"],
+            "args": [],
+            "cwd": ".",
+            "env": {},
+            "allowedTools": [
+                "execute_sql_query",
+                "top_rated_movies",
+                "get_movie_details",
+                "search_movies",
+                "query_movies_by_actor",
+                "query_movies_by_director"
+            ]
+        }
     }
-  }
 }

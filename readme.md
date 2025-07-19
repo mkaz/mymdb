@@ -5,18 +5,22 @@ A test app to play with MCP servers using the IMDb data set.
 
 ## Setup
 
-1. Fetch data from IMdb: `cd data && bash fetch.sh`
+1. Fetch data from IMDb: `cd data && bash fetch.sh`
 2. Import data to sqlite db: `python import.py`
-3. Install [mcphost](https://github.com/mark3labs/mcphost)
-    a. `brew install go`
-    b. `go install github.com/mark3labs/mcphost@latest`
-    c. Add `go/bin` to `PATH`
+3. Install [mcphost](https://github.com/mark3labs/mcphost) download from [releases page](https://github.com/mark3labs/mcphost/releases) or if you already have `go` installed use `go install github.com/mark3labs/mcphost@latest`
 4. Setup Python: `uv sync` download dependencies
 
-FIXME: MCP Config / Script path weirdness. Hardcoded in mcp_server.py and mcp_config.json
+5. Run using: `mcphost -m MODEL --config mcp_config.json`
 
-5. `just run`
+Shortcuts in justfile, update to fit your need
 
+    a. `just run-local`   # Uses MODEL: ollama:qwen3
+    b. `just run-openai`  # Uses MODEL: openai-gpt4 (requires OPENAI_API_KEY)
+
+
+---
+
+A bunch of extra details I through in readme to help the vibe coders vibe
 
 ---
 
