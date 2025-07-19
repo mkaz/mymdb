@@ -20,7 +20,7 @@ Shortcuts in justfile, update to fit your need
 
 ---
 
-A bunch of extra details I through in readme to help the vibe coders vibe
+A bunch of extra details I threw in readme to help the vibe coders vibe.
 
 ---
 
